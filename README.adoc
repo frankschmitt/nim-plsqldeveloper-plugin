@@ -1,0 +1,8 @@
+= PREREQUISITES
+You'll need the Nim compiler and Mingw. Just hop to http://nim-lang.org, download the latest compiler version, unzip it, and run finish.exe - this will take care of the rest (adapt your %PATH% and install the MingW compiler).
+
+= INSTALL
+```nimble install winim```
+
+= RUN
+```nim c --run main.nim```
