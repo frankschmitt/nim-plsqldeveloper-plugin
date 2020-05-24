@@ -1,0 +1,12 @@
+= TODO
+- write log file
+- create repeatable migration
+- create versioned migration
+- create repeatable + versioned migration
+
+= IN WORK
+- wrap PL/SQL Developer API
+
+= DONE
+- create ribbon tab and menu
+- show about dialog

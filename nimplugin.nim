@@ -18,6 +18,12 @@ proc IdentifyPlugIn(id: int): cstring {.cdecl,exportc,dynlib.} =
   pluginId = id
   result = "Nim PL/SQL Developer Plugin"
 
+# Show an about message
+proc About(): cstring {.cdecl,exportc,dynlib.} = 
+    MessageBox(0, VERSION_INFO, "About Nim PL/SQL Developer Plugin", 0)
+    # return an empty string to indicate to the host app that we take care of showing the dialog ourselves
+    result = "" 
+
 proc CreateMenuItem(Index: int): cstring {.cdecl,exportc,dynlib.} = 
     if Index == 1:
       result = TAB_NAME_NIM
@@ -33,4 +39,5 @@ proc CreateMenuItem(Index: int): cstring {.cdecl,exportc,dynlib.} =
       result = ""
 
 proc OnMenuClick(Index: int) {.cdecl,exportc,dynlib.} = 
-    MessageBox(0, VERSION_INFO, "About Nim PL/SQL Developer Plugin", 0)
+    discard About()
+
