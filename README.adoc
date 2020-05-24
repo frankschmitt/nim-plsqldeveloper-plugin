@@ -1,8 +1,22 @@
 = PREREQUISITES
 You'll need the Nim compiler and Mingw. Just hop to http://nim-lang.org, download the latest compiler version, unzip it, and run finish.exe - this will take care of the rest (adapt your %PATH% and install the MingW compiler).
 
-= INSTALL
+= INSTALL DEPENDENCIES
 ```nimble install winim```
 
+= BUILD
+nim c --app:lib .\nimplugin.nim
+
+= INSTALL
+cp nimplugin.dll c:\program files\plsql developer <version>\plugins\
+
+= DEBUG
+For debugging, you can use e.g. Python to check whether the DLL can be loaded successfully:
+```
+from ctypes import *
+print(cdll.nimplugin.IdentifyPlugin(7))
+```
+
 = RUN
-```nim c --run main.nim```
+```plsqldev.exe /debugplugins```
+(this will create a file %appdata%/PLSQL Developer <version>/debug.txt containing helpful messages for debugging)
